@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joseph Goyena | Construction Project Coordinator</title>
+  <title>Joseph Goyena | Construction Project Coordinator<br><span style="font-size:.72em;font-weight:500;opacity:.85;">Pre-Construction | Commercial | Project Delivery</span></title>
   <style>
     :root{
       --bg:#121212;
@@ -1502,26 +1502,18 @@
 
 
     .additional-experience-hub{
-      margin-top:34px;
-      border:1px solid var(--line);
-      border-radius:32px;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(216,204,176,.08), transparent 42%),
-        linear-gradient(145deg,#1d1d1d,#161616);
-      padding:42px;
-      box-shadow:0 30px 90px rgba(0,0,0,.32);
-      overflow:hidden;
-      position:relative;
-    }
-    .additional-experience-hub:before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(120deg,transparent,rgba(255,255,255,.065),transparent);
-      transform:translateX(-115%);
-      animation:additionalSheen 8s ease-in-out infinite;
-      pointer-events:none;
-    }
+  margin-top:34px !important;
+  border:0 !important;
+  outline:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  padding:0 !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+  position:relative !important;
+}
+    .additional-experience-hub:before{display:none !important; content:none !important;}
     @keyframes additionalSheen{
       0%,60%,100%{transform:translateX(-115%)}
       78%{transform:translateX(115%)}
@@ -1600,8 +1592,17 @@
     }
     @media(max-width:900px){
       .additional-experience-hub{
-        padding:28px 20px;
-      }
+  margin-top:34px !important;
+  border:0 !important;
+  outline:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  padding:0 !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+  position:relative !important;
+}
       .sector-tiles{
         grid-template-columns:1fr;
       }
@@ -2143,6 +2144,497 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.16)!import
 .premium-dot:nth-child(6){animation-delay:30s!important;}
 .premium-dot:nth-child(7){animation-delay:36s!important;}
 
+
+/* Commercial Impact + Most Recent Role updates */
+.impact-stats{
+  grid-template-columns:repeat(4,1fr);
+}
+.impact-stats .stat{
+  min-height:230px;
+}
+.impact-stats .counter[data-text]{
+  font-size:34px;
+  line-height:1.05;
+  letter-spacing:-.04em;
+}
+.role-overview{
+  margin-bottom:28px;
+}
+.role-grid{
+  grid-template-columns:repeat(2,1fr);
+}
+.role-card{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#252525,#171717);
+  box-shadow:0 20px 55px rgba(0,0,0,.20);
+  transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+.role-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(216,204,176,.08),transparent);
+  transform:translateX(-120%);
+  transition:transform .75s ease;
+  pointer-events:none;
+}
+.role-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(216,204,176,.34);
+  box-shadow:0 28px 70px rgba(0,0,0,.30);
+}
+.role-card:hover:before{
+  transform:translateX(120%);
+}
+.role-card h4,
+.role-card ul{
+  position:relative;
+}
+.role-card li{
+  margin-bottom:8px;
+}
+@media(max-width:1100px){
+  .impact-stats{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:900px){
+  .impact-stats,
+  .role-grid{grid-template-columns:1fr;}
+  .impact-stats .counter[data-text]{font-size:30px;}
+}
+
+
+/* Final requested layout refinements */
+.impact-stats .stat{min-height:240px;}
+.impact-years-card .counter{font-size:56px;}
+.impact-years-card b{font-size:16px;}
+.impact-projects-card .number-row{justify-content:center;margin-bottom:16px;}
+.impact-projects-card .counter{font-size:62px;line-height:.9;}
+.impact-projects-card .impact-card-copy{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;}
+.impact-projects-card .impact-card-copy b{font-size:18px;line-height:1.15;}
+.impact-projects-card .impact-card-copy em{font-style:normal;color:var(--silver);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;}
+.impact-projects-card .impact-card-copy small{display:block;color:var(--muted);font-size:14px;line-height:1.45;max-width:230px;}
+.role-grid{grid-template-columns:repeat(3,1fr)!important;}
+.role-card{min-height:315px;}
+.project-image.blueprint-panel{
+  height:210px;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255,255,255,.12), transparent 36%),
+    radial-gradient(circle at 80% 20%, rgba(216,204,176,.10), transparent 32%),
+    linear-gradient(145deg,#2a2a2a,#151515)!important;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.project-image.blueprint-panel:before{display:none!important;}
+.project-value-metal{
+  font-size:clamp(38px,5vw,62px);
+  text-align:center;
+}
+.project-value-label{
+  margin-top:14px;
+  text-align:center;
+  letter-spacing:.16em;
+  color:#bfbfbf;
+}
+.clean-experience-card:before{display:none!important;}
+.clean-experience-card{
+  min-height:190px;
+  background:linear-gradient(145deg,#252525,#171717)!important;
+  animation:experienceCardFlash 5.5s ease-in-out infinite;
+}
+.clean-experience-card:nth-child(2){animation-delay:.8s;}
+.clean-experience-card:nth-child(3){animation-delay:1.6s;}
+.clean-experience-card:nth-child(4){animation-delay:2.4s;}
+@keyframes experienceCardFlash{
+  0%,100%{border-color:rgba(255,255,255,.09);box-shadow:0 20px 55px rgba(0,0,0,.24);}
+  45%{border-color:rgba(245,245,245,.32);box-shadow:0 24px 70px rgba(0,0,0,.30),0 0 22px rgba(255,255,255,.045);}
+}
+.premium-client-pair{
+  animation:none!important;
+  opacity:0!important;
+  transform:translateY(24px) scale(.985)!important;
+  filter:blur(4px)!important;
+  transition:opacity .75s ease, transform .75s ease, filter .75s ease;
+}
+.premium-client-pair.active{
+  opacity:1!important;
+  transform:translateY(0) scale(1)!important;
+  filter:blur(0)!important;
+}
+.premium-dot{animation:none!important;}
+.premium-dot.active{
+  background:#d8ccb0!important;
+  border-color:#d8ccb0!important;
+  box-shadow:0 0 16px rgba(216,204,176,.35)!important;
+}
+@media(max-width:1100px){.role-grid{grid-template-columns:repeat(2,1fr)!important;}}
+@media(max-width:900px){.role-grid{grid-template-columns:1fr!important;}.impact-years-card .counter{font-size:46px;}.impact-projects-card .counter{font-size:54px;}}
+
+
+
+/* Revised Additional Project Experience carousel */
+.additional-experience-hub p,
+.trade-summary-strip{
+  display:none!important;
+}
+.experience-carousel{
+  position:relative;
+  min-height:440px;
+  margin-top:28px;
+}
+.experience-set{
+  position:absolute;
+  inset:0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  opacity:0;
+  transform:translateY(24px) scale(.985);
+  filter:blur(5px);
+  animation:experienceSetCycle 32s cubic-bezier(.22,1,.36,1) infinite;
+}
+.experience-set:nth-child(1){animation-delay:0s;}
+.experience-set:nth-child(2){animation-delay:8s;}
+.experience-set:nth-child(3){animation-delay:16s;}
+.experience-set:nth-child(4){animation-delay:24s;}
+@keyframes experienceSetCycle{
+  0%{opacity:0;transform:translateY(24px) scale(.985);filter:blur(5px);}
+  8%{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}
+  22%{opacity:1;transform:translateY(0) scale(1);filter:blur(0);}
+  30%{opacity:0;transform:translateY(-20px) scale(.985);filter:blur(4px);}
+  100%{opacity:0;transform:translateY(-20px) scale(.985);filter:blur(4px);}
+}
+.experience-card{
+  min-height:190px;
+  border-radius:24px;
+  padding:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,.075), transparent 42%),
+    linear-gradient(145deg,#252525,#171717);
+  border:1px solid rgba(255,255,255,.11);
+  box-shadow:0 20px 55px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.06);
+  position:relative;
+  overflow:hidden;
+  animation:experienceCardFlash 5.5s ease-in-out infinite;
+}
+.experience-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(216,204,176,.09),transparent);
+  transform:translateX(-120%);
+  animation:experienceCardSheen 6s ease-in-out infinite;
+}
+.experience-card strong{
+  position:relative;
+  color:var(--silver);
+  font-size:clamp(21px,2.5vw,30px);
+  font-weight:950;
+  letter-spacing:-.035em;
+  line-height:1.12;
+}
+.experience-card:nth-child(2){animation-delay:.65s;}
+.experience-card:nth-child(3){animation-delay:1.3s;}
+.experience-card:nth-child(4){animation-delay:1.95s;}
+@keyframes experienceCardSheen{
+  0%,70%,100%{transform:translateX(-120%);}
+  85%{transform:translateX(120%);}
+}
+@media(max-width:900px){
+  .experience-carousel{min-height:760px;}
+  .experience-set{grid-template-columns:1fr;}
+  .experience-card{min-height:170px;}
+}
+.additional-title{margin:0 0 22px!important;}
+.experience-card{animation:none!important;}
+.experience-card:before{display:none!important;animation:none!important;}
+.experience-card:hover{border-color:rgba(245,245,245,.28);box-shadow:0 24px 62px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07);}
+
+
+/* Final cleanup: ensure problematic project-involvement metric is removed */
+.stat.project-involvements,
+.stat:has(.project-involvements),
+.stat:has([data-metric="project-involvements"]){
+  display:none !important;
+}
+
+
+/* Final Commercial Impact width refinement */
+.stats{
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:24px !important;
+  width:100% !important;
+  max-width:1200px !important;
+  margin:0 auto !important;
+}
+.stat{
+  min-height:240px !important;
+  padding:34px !important;
+}
+.counter{
+  font-size:56px !important;
+}
+@media(max-width:900px){
+  .stats{
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+  .stat{
+    min-height:auto !important;
+    padding:30px !important;
+  }
+  .counter{
+    font-size:46px !important;
+  }
+}
+
+
+/* ABSOLUTE FINAL FIX: remove Additional Project Experience outer container */
+#additional-experience .additional-experience-hub,
+.additional-experience-hub,
+.additional-experience-hub.additional-experience-hub,
+section .additional-experience-hub{
+  margin-top:34px !important;
+  border:0 !important;
+  outline:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  background-image:none !important;
+  padding:0 !important;
+  box-shadow:none !important;
+  overflow:visible !important;
+  position:relative !important;
+}
+
+#additional-experience .additional-experience-hub::before,
+#additional-experience .additional-experience-hub::after,
+.additional-experience-hub::before,
+.additional-experience-hub::after{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* keep only the actual rotating cards styled */
+#additional-experience .sample-card,
+#additional-experience .clean-experience-card,
+#additional-experience .sector-tile{
+  border:1px solid rgba(255,255,255,.10) !important;
+  border-radius:24px !important;
+  background:linear-gradient(145deg,#252525,#171717) !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.22) !important;
+}
+
+
+
+/* PREMIUM FINAL VERTICAL RHYTHM RESET
+   Purpose: remove oversized section gaps caused by stacked legacy padding/margins. */
+:root{
+  --section-y:52px;
+  --section-y-tight:40px;
+  --heading-gap:24px;
+  --card-gap:22px;
+}
+
+/* Base section rhythm */
+section{
+  padding-top:var(--section-y) !important;
+  padding-bottom:var(--section-y) !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+/* Hero should feel premium but not disconnected */
+.hero{
+  padding-top:78px !important;
+  padding-bottom:46px !important;
+}
+
+/* Heading-to-content spacing */
+.section-head{
+  margin-bottom:var(--heading-gap) !important;
+}
+.section-head p{
+  margin-top:8px !important;
+}
+
+/* Remove compounding internal top margins */
+.stats,
+.grid,
+.featured-projects-grid,
+.sample-gallery,
+.clean-experience-gallery,
+.trade-gallery,
+.sector-tiles,
+.profile-links,
+.timeline{
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+/* Keep grids consistent */
+.stats,
+.grid,
+.featured-projects-grid,
+.clean-experience-gallery,
+.trade-gallery{
+  gap:var(--card-gap) !important;
+}
+
+/* Commercial Impact should flow directly into Most Recent Role */
+section:has(.stats){
+  padding-top:44px !important;
+  padding-bottom:34px !important;
+}
+section:has(.stats) + section{
+  padding-top:34px !important;
+}
+
+/* Most Recent Role / card-heavy sections should not have excessive breathing room */
+section:has(.grid){
+  padding-top:44px !important;
+  padding-bottom:44px !important;
+}
+
+/* Featured Projects and Client Experience can breathe slightly more */
+section:has(.featured-projects-grid){
+  padding-top:52px !important;
+  padding-bottom:46px !important;
+}
+section:has(.premium-client-carousel),
+section:has(.seamless-client-carousel){
+  padding-top:52px !important;
+  padding-bottom:46px !important;
+}
+
+/* Additional Project Experience: no outer-box spacing */
+.additional-experience-hub{
+  margin-top:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+}
+.additional-hub-inner{
+  padding:0 !important;
+}
+section:has(.additional-experience-hub){
+  padding-top:46px !important;
+  padding-bottom:46px !important;
+}
+
+/* Featured project hub/card spacing cleanup */
+.featured-projects-grid{
+  margin-bottom:26px !important;
+}
+.portfolio-hub{
+  margin-top:0 !important;
+}
+
+/* Contact should close the page cleanly */
+section:has(.contact){
+  padding-top:52px !important;
+  padding-bottom:44px !important;
+}
+.contact{
+  margin-top:0 !important;
+}
+
+/* Avoid visually excessive card heights */
+.stat{
+  min-height:220px !important;
+  padding:32px !important;
+}
+.card{
+  padding:28px !important;
+}
+
+/* Mobile vertical rhythm */
+@media(max-width:900px){
+  :root{
+    --section-y:38px;
+    --section-y-tight:30px;
+    --heading-gap:20px;
+    --card-gap:16px;
+  }
+  section{
+    padding-top:var(--section-y) !important;
+    padding-bottom:var(--section-y) !important;
+  }
+  .hero{
+    padding-top:44px !important;
+    padding-bottom:34px !important;
+  }
+  section:has(.stats),
+  section:has(.grid),
+  section:has(.featured-projects-grid),
+  section:has(.premium-client-carousel),
+  section:has(.seamless-client-carousel),
+  section:has(.additional-experience-hub),
+  section:has(.contact){
+    padding-top:38px !important;
+    padding-bottom:38px !important;
+  }
+  section:has(.stats) + section{
+    padding-top:30px !important;
+  }
+  .stat,
+  .card{
+    padding:24px !important;
+  }
+}
+
+
+
+/* Precise spacing fix:
+   Add breathing room after Featured Projects cards only */
+.featured-projects-grid{
+  margin-bottom:72px !important;
+}
+
+/* If the portfolio hub appears after featured cards, keep it controlled */
+.featured-projects-grid + .portfolio-hub{
+  margin-top:0 !important;
+  margin-bottom:64px !important;
+}
+
+/* Ensure Additional Project Experience itself does not create extra top issues elsewhere */
+.additional-experience-hub{
+  margin-top:0 !important;
+}
+
+/* Mobile spacing should be smaller but still clear */
+@media(max-width:900px){
+  .featured-projects-grid{
+    margin-bottom:48px !important;
+  }
+  .featured-projects-grid + .portfolio-hub{
+    margin-bottom:44px !important;
+  }
+}
+
+
+/* Match Additional Project Experience card spacing to Commercial Impact */
+.additional-experience-grid,
+.clean-experience-gallery,
+.trade-gallery,
+.sector-tiles{
+  gap:20px !important;
+}
+
+/* Fallback for grid-based layouts */
+.additional-experience-hub .grid{
+  gap:20px !important;
+}
+
 </style>
 </head>
 <body>
@@ -2153,9 +2645,9 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.16)!import
         <a href="#home">Home</a>
         
         <a href="#snapshot">Snapshot</a>
-        <a href="#clients">Clients</a>
-        <a href="#capabilities">Capabilities</a>
+        <a href="#recent-role">Most Recent Role</a>
         <a href="#projects">Projects</a>
+        <a href="#clients">Clients</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
@@ -2164,13 +2656,12 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.16)!import
   <main id="home" class="hero">
     <div>
       <div class="eyebrow silver-sweep hero-reveal delay-1">Pre-Construction • Project Delivery</div>
-      <h1 class="hero-title-unique hero-reveal delay-2">Construction Project Coordinator</h1>
+      <h1 class="hero-title-unique hero-reveal delay-2">Pre-Construction &amp; Project Delivery Specialist</h1>
       <p class="lead hero-specialty hero-reveal delay-3">
-        Specializing in demolition, strip-out and refurbishment projects.
+        Supporting demolition, strip-out, fit-out and refurbishment projects from tender submission through financial closeout.
       </p>
       <p class="lead hero-reveal delay-4">
-        8 years of quantity takeoff, estimating, and project delivery exposure, with experience in tender
-        coordination, procurement support, commercial administration, variations, progress claims, and project closeout.
+        Contributed to $8M+ in awarded project value over 2.5 years while preparing high-volume estimates, coordinating project award requirements, supporting delivery, managing variations, claims and financial closeout.
       </p>
       <div class="actions hero-reveal delay-4">
         <a class="btn primary" href="#projects">View Portfolio</a>
@@ -2195,12 +2686,12 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.16)!import
 
     <div class="stats">
       <div class="stat">
-        <div class="number-row"><span class="counter metallic-number" data-target="30" data-suffix="+">0+</span></div>
+        <div class="number-row"><span class="counter metallic-number range-counter" data-target="30" data-final="20-30+" data-suffix="+">0+</span></div>
         <span><b>Tenders Submitted Weekly</b>Predominantly demolition and strip-out projects, ranging from small commercial works to large-scale demolition packages.</span>
       </div>
       <div class="stat">
         <div class="number-row"><span class="counter metallic-number" data-target="8" data-prefix="$" data-suffix="M+">$0M+</span></div>
-        <span><br>Supported the successful delivery of over $8M in demolition, strip-out, and refurbishment works during 2.5 years with a Sydney-based demolition contractor.</span>
+        <span><br>Supported the successful tendering, delivery and commercial administration of over $8M in demolition, strip-out and refurbishment works during 2.5 years with a Sydney-based demolition contractor.</span>
       </div>
       <div class="stat">
         <div class="number-row"><span class="counter metallic-number" data-target="8" data-suffix="+">0+</span></div>
@@ -2208,6 +2699,205 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.16)!import
       </div>
     </div>
   </section>
+
+  <section id="recent-role">
+    <div class="section-head">
+      <h3 class="section-flash-title">Most Recent Role</h3>
+    </div>
+
+    <div class="highlight role-overview">
+      <p>Contributed to projects from tender submission through financial closeout, combining estimating, pre-construction planning, procurement coordination, site readiness, project delivery support, commercial administration and stakeholder communication responsibilities.</p>
+    </div>
+
+    <div class="grid role-grid">
+      <div class="card role-card">
+        <h4>Tendering &amp; Commercial Strategy</h4>
+        <ul>
+          <li>Prepared 20–30+ estimates weekly as sole estimator</li>
+          <li>Completed quantity takeoffs, pricing reviews and tender submissions</li>
+          <li>Assessed scope, risk, documentation gaps and bid viability</li>
+          <li>Provided bid / no-bid recommendations where required</li>
+        </ul>
+      </div>
+      <div class="card role-card">
+        <h4>Project Award &amp; Pre-Construction Planning</h4>
+        <ul>
+          <li>Reviewed post-tender and IFC documentation</li>
+          <li>Checked updated drawings, construction programs, staging plans and methodologies</li>
+          <li>Supported contract review, clarifications and scope establishment</li>
+          <li>Prepared awarded projects for mobilisation and closeout alignment</li>
+        </ul>
+      </div>
+      <div class="card role-card">
+        <h4>Resource Planning &amp; Mobilisation</h4>
+        <ul>
+          <li>Organised subcontractors, plant and equipment required on site</li>
+          <li>Supported resource planning and allocation requirements</li>
+          <li>Recommended suitable crews based on project scope, complexity and program</li>
+          <li>Coordinated site readiness before works commenced</li>
+        </ul>
+      </div>
+      <div class="card role-card">
+        <h4>Compliance &amp; Site Documentation</h4>
+        <ul>
+          <li>Prepared SWMS, ARCPs and crew work orders</li>
+          <li>Uploaded project documentation into SiteDocs</li>
+          <li>Prepared site-specific methodologies</li>
+          <li>Prepared Waste Management / Sustainability Plans</li>
+          <li>Prepared BBP / Waste Reports where required</li>
+          <li>Maintained mobilisation documentation for site teams</li>
+          <li>Supported compliance requirements prior to and during delivery</li>
+        </ul>
+      </div>
+      <div class="card role-card">
+        <h4>Stakeholder &amp; Site Coordination</h4>
+        <ul>
+          <li>Communicated with client project managers and site managers</li>
+          <li>Coordinated with internal site managers and crews</li>
+          <li>Assisted crew inquiries during live works</li>
+          <li>Helped maintain communication between office, site and client teams</li>
+        </ul>
+      </div>
+      <div class="card role-card">
+        <h4>Project Delivery, Claims &amp; Financial Closeout</h4>
+        <ul>
+          <li>Supported and managed live projects depending on project assignment</li>
+          <li>Tracked labour timesheets and labour costs</li>
+          <li>Recorded waste costs, tools, plant hire, subcontractor costs and overheads</li>
+          <li>Created variations and change orders</li>
+          <li>Prepared budget tracking and P&amp;L reporting support</li>
+          <li>Prepared progress claims and full claims using Xero, PayApps and Premier</li>
+          <li>Supported final account, revenue closeout and dispute discussions with clients</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-head">
+      <h3 class="section-flash-title">Featured Demolition Projects</h3>
+    </div>
+
+    <div class="featured-projects-grid">
+      
+      
+      <article class="featured-project-card blueprint-project-card">
+        <div class="project-image blueprint-panel">
+          <div class="project-value-metal">$350K–$400K+</div>
+          <div class="project-value-label">DEMOLITION PACKAGE VALUE</div>
+        </div>
+        <div class="project-content">
+          <h4>Multi-Floor Defit & Stair Removal</h4>
+          <div class="project-meta">
+            <span><strong>Location:</strong> 400 George Street, Sydney CBD</span>
+            <span><strong>Project Builder:</strong> ATG</span>
+            <span><strong>Role:</strong> Estimator &amp; Project Coordinator</span>
+            <span><strong>Scope:</strong> Tendering, estimating, project coordination and delivery support for a multi-floor defit involving spec suites, amenities, lobbies, corridors, and removal of two internal staircases.</span>
+            <span><strong>Outcome:</strong> Delivered a commercially successful project outcome through effective estimating, planning, coordination, variation management, and project closeout support.</span>
+          </div>
+        </div>
+      </article>
+
+
+
+      
+      <article class="featured-project-card blueprint-project-card">
+        <div class="project-image blueprint-panel">
+          <div class="project-value-metal">$250K–$300K+</div>
+          <div class="project-value-label">DEMOLITION PACKAGE VALUE</div>
+        </div>
+        <div class="project-content">
+          <h4>100 Pacific Highway – Multi-Floor Defit</h4>
+          <div class="project-meta">
+            <span><strong>Location:</strong> 100 Pacific Highway</span>
+            <span><strong>Project Builder:</strong> Confidential Commercial Builder</span>
+            <span><strong>Role:</strong> Estimator &amp; Project Coordinator</span>
+            <span><strong>Scope:</strong> Tendering, estimating, project coordination and delivery support for Ground Floor Lobby &amp; Café defit works together with upper-level spec suite demolition and strip-out works.</span>
+            <span><strong>Outcome:</strong> Supported the successful delivery of lobby, café and spec suite demolition works through proactive planning, coordination and management of project requirements across multiple work zones.</span>
+          </div>
+        </div>
+      </article>
+
+
+      
+      <article class="featured-project-card blueprint-project-card">
+        <div class="project-image blueprint-panel">
+          <div class="project-value-metal">$45K–$55K+</div>
+          <div class="project-value-label">DEMOLITION PACKAGE VALUE</div>
+        </div>
+        <div class="project-content">
+          <h4>Smeaton Grange Tenancy Defit</h4>
+          <div class="project-meta">
+            <span><strong>Location:</strong> Smeaton Grange, NSW</span>
+            <span><strong>Project Builder:</strong> Rogers Construction Group</span>
+            <span><strong>Role:</strong> Estimator &amp; Project Manager</span>
+            <span><strong>Scope:</strong> Tendering, estimating, project management and delivery support for a partial two-level tenancy strip-out completed within a three-week demolition programme.</span>
+            <span><strong>Outcome:</strong> Successfully delivered within programme while coordinating demolition activities alongside multiple concurrent trades, achieving a commercially successful project outcome through effective planning, communication and site coordination.</span>
+          </div>
+        </div>
+      </article>
+
+
+      
+      <article class="featured-project-card blueprint-project-card">
+        <div class="project-image blueprint-panel">
+          <div class="project-value-metal">$120K–$155K+</div>
+          <div class="project-value-label">DEMOLITION PACKAGE VALUE</div>
+        </div>
+        <div class="project-content">
+          <h4>1031 Old Princes Highway – Engadine</h4>
+          <div class="project-meta">
+            <span><strong>Location:</strong> Engadine, NSW</span>
+            <span><strong>Project Builder:</strong> Growthbuilt</span>
+            <span><strong>Role:</strong> Estimator &amp; Project Manager Assistant</span>
+            <span><strong>Scope:</strong> Tendering, estimating and project delivery support for truncating works, sawcutting, slab demolition, tenancy strip-outs and carpark demolition works.</span>
+            <span><strong>Outcome:</strong> Supported successful project delivery through effective estimating, planning, coordination and management of multiple demolition work fronts, contributing to safe and efficient execution of structural and tenancy demolition activities.</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="additional-experience-hub">
+      <div class="additional-hub-inner">
+        <h4 class="section-flash-title additional-title">Additional Project Experience</h4>
+
+        <div class="experience-carousel" aria-label="Additional project experience trade exposure">
+          <div class="experience-set">
+            <article class="experience-card"><strong>Sitework, Excavation &amp; Flatworks</strong></article>
+            <article class="experience-card"><strong>Concrete, Formworks and Reinforcements</strong></article>
+            <article class="experience-card"><strong>Carpentry &amp; Millworks</strong></article>
+            <article class="experience-card"><strong>Structural Steel</strong></article>
+          </div>
+
+          <div class="experience-set">
+            <article class="experience-card"><strong>Metalwork</strong></article>
+            <article class="experience-card"><strong>Tanking and Waterproof Membranes</strong></article>
+            <article class="experience-card"><strong>Stonework</strong></article>
+            <article class="experience-card"><strong>Facade Systems</strong></article>
+          </div>
+
+          <div class="experience-set">
+            <article class="experience-card"><strong>Glass and Aluminum</strong></article>
+            <article class="experience-card"><strong>Partition Framings, Linings and Surface Preparation</strong></article>
+            <article class="experience-card"><strong>Painting</strong></article>
+            <article class="experience-card"><strong>Suspended Ceilings</strong></article>
+          </div>
+
+          <div class="experience-set">
+            <article class="experience-card"><strong>Raised Flooring, Access Flooring &amp; Floor Finishes</strong></article>
+            <article class="experience-card"><strong>Joineries and FF&amp;E</strong></article>
+            <article class="experience-card"><strong>Mechanical, Electrical and Plumbing</strong></article>
+            <article class="experience-card"><strong>Hoardings and Site Protection</strong></article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</section>
+
+
 
   <section id="clients">
     <div class="section-head">
@@ -2356,231 +3046,6 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.16)!import
 
 
 
-  <section id="capabilities">
-    <div class="section-head">
-      <h3 class="section-flash-title">Capabilities</h3>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h4>Tender & Bid Coordination</h4>
-        <p>Reviewing scopes, preparing estimates, requesting subcontractor pricing, coordinating tender deadlines, and supporting submissions.</p>
-      </div>
-      <div class="card">
-        <h4>Project Coordination</h4>
-        <p>Supporting labour, plant, subcontractors, site requirements, documentation, scheduling, and delivery communication.</p>
-      </div>
-      <div class="card">
-        <h4>Project Administration &amp; Management</h4>
-        <p>Supporting and managing variations, progress claims, budget monitoring, financial reporting, and project closeout documentation.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="section-head">
-      <h3 class="section-flash-title">Experience Flow</h3>
-    </div>
-
-    <div class="timeline">
-      <div class="item">
-        <div class="date">Tender Stage</div>
-        <div>
-          <strong>Estimating & submission support</strong>
-          <p>Prepared and coordinated high-volume tenders, reviewed scopes/drawings, built estimates, obtained pricing, and supported tender submissions.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="date">Award Stage</div>
-        <div>
-          <strong>Negotiation & planning</strong>
-          <p>Supported post-tender clarifications, commercial discussions, project award preparation, resource planning and scheduling, budget forecasting and allocation, site planning and preparation.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="date">Delivery Stage</div>
-        <div>
-          <strong>Project delivery support</strong>
-          <p>Coordinated documentation and communication, site needs, labour/plant requirements, variations, progress claims, budget reporting (P&amp;L), and closeout support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-  <section>
-    <div class="section-head">
-      <h3 class="section-flash-title">Transferable Value</h3>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h4>Fast Tender Environment</h4>
-        <ul>
-          <li>High-volume tender exposure</li>
-          <li>Deadline-driven submissions</li>
-          <li>Scope and documentation review</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>Commercial Awareness</h4>
-        <ul>
-          <li>Cost tracking and reporting</li>
-          <li>Variations and progress claims</li>
-          <li>Project budget support</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h4>Delivery Mindset</h4>
-        <ul>
-          <li>Labour and plant coordination</li>
-          <li>Site communication support</li>
-          <li>Closeout documentation</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <section id="projects">
-    <div class="section-head">
-      <h3 class="section-flash-title">Featured Demolition Projects</h3>
-    </div>
-
-    <div class="featured-projects-grid">
-      
-      
-      <article class="featured-project-card blueprint-project-card">
-        <div class="project-image blueprint-panel">
-          <div class="project-index">FEATURED PROJECT 01</div>
-          <div class="project-value-metal">$400K+</div>
-          <div class="project-value-label">DEMOLITION PACKAGE VALUE</div>
-        </div>
-        <div class="project-content">
-          <h4>Multi-Floor Defit & Stair Removal</h4>
-          <div class="project-meta">
-            <span><strong>Location:</strong> 400 George Street, Sydney CBD</span>
-            <span><strong>Project Builder:</strong> ATG</span>
-            <span><strong>Role:</strong> Estimator &amp; Project Coordinator</span>
-            <span><strong>Scope:</strong> Tendering, estimating, project coordination and delivery support for a multi-floor defit involving spec suites, amenities, lobbies, corridors, and removal of two internal staircases.</span>
-            <span><strong>Outcome:</strong> Delivered a commercially successful project outcome through effective estimating, planning, coordination, variation management, and project closeout support.</span>
-          </div>
-        </div>
-      </article>
-
-
-
-      
-      <article class="featured-project-card blueprint-project-card">
-        <div class="project-image blueprint-panel">
-          <div class="project-index">FEATURED PROJECT 02</div>
-          <div class="project-value-metal">$300K+</div>
-          <div class="project-value-label">DEMOLITION PACKAGE VALUE</div>
-        </div>
-        <div class="project-content">
-          <h4>100 Pacific Highway – Multi-Floor Defit</h4>
-          <div class="project-meta">
-            <span><strong>Location:</strong> 100 Pacific Highway</span>
-            <span><strong>Project Builder:</strong> Confidential Commercial Builder</span>
-            <span><strong>Role:</strong> Estimator &amp; Project Coordinator</span>
-            <span><strong>Scope:</strong> Tendering, estimating, project coordination and delivery support for Ground Floor Lobby &amp; Café defit works together with upper-level spec suite demolition and strip-out works.</span>
-            <span><strong>Outcome:</strong> Supported the successful delivery of lobby, café and spec suite demolition works through proactive planning, coordination and management of project requirements across multiple work zones.</span>
-          </div>
-        </div>
-      </article>
-
-
-      
-      <article class="featured-project-card blueprint-project-card">
-        <div class="project-image blueprint-panel">
-          <div class="project-index">FEATURED PROJECT 03</div>
-          <div class="project-value-metal">$55K+</div>
-          <div class="project-value-label">DEMOLITION PACKAGE VALUE</div>
-        </div>
-        <div class="project-content">
-          <h4>Smeaton Grange Tenancy Defit</h4>
-          <div class="project-meta">
-            <span><strong>Location:</strong> Smeaton Grange, NSW</span>
-            <span><strong>Project Builder:</strong> Rogers Construction Group</span>
-            <span><strong>Role:</strong> Estimator &amp; Project Manager</span>
-            <span><strong>Scope:</strong> Tendering, estimating, project management and delivery support for a partial two-level tenancy strip-out completed within a three-week demolition programme.</span>
-            <span><strong>Outcome:</strong> Successfully delivered within programme while coordinating demolition activities alongside multiple concurrent trades, achieving a commercially successful project outcome through effective planning, communication and site coordination.</span>
-          </div>
-        </div>
-      </article>
-
-
-      
-      <article class="featured-project-card blueprint-project-card">
-        <div class="project-image blueprint-panel">
-          <div class="project-index">FEATURED PROJECT 04</div>
-          <div class="project-value-metal">$150K+</div>
-          <div class="project-value-label">DEMOLITION PACKAGE VALUE</div>
-        </div>
-        <div class="project-content">
-          <h4>1031 Old Princes Highway – Engadine</h4>
-          <div class="project-meta">
-            <span><strong>Location:</strong> Engadine, NSW</span>
-            <span><strong>Project Builder:</strong> Growthbuilt</span>
-            <span><strong>Role:</strong> Estimator &amp; Project Manager Assistant</span>
-            <span><strong>Scope:</strong> Tendering, estimating and project delivery support for truncating works, sawcutting, slab demolition, tenancy strip-outs and carpark demolition works.</span>
-            <span><strong>Outcome:</strong> Supported successful project delivery through effective estimating, planning, coordination and management of multiple demolition work fronts, contributing to safe and efficient execution of structural and tenancy demolition activities.</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <div class="additional-experience-hub">
-      <div class="additional-hub-inner">
-        <h4>Additional Project Experience</h4>
-        
-
-        <div class="sample-gallery trade-gallery clean-experience-gallery">
-          <article class="sample-card trade-card clean-experience-card">
-            <div class="sample-content">
-              <h5>All-Trades Quantity Takeoff</h5>
-              <p>Complete quantity takeoff summary covering excavation, concrete, masonry, roofing, waterproofing, windows, doors, plasterboard, tiling, flooring, painting and landscaping.</p>
-            </div>
-          </article>
-
-          <article class="sample-card trade-card clean-experience-card">
-            <div class="sample-content">
-              <h5>Excavation, Concrete & Masonry</h5>
-              <p>Blueprint markups and measured quantities for site clearing, underpinning, concrete components, reinforcement and masonry-related scopes.</p>
-            </div>
-          </article>
-
-          <article class="sample-card trade-card clean-experience-card">
-            <div class="sample-content">
-              <h5>Carpentry, Roofing & Insulation</h5>
-              <p>Marked-up takeoff samples covering structural carpentry, cladding, roof sheets, flashings, roof plumbing, windows, doors and insulation.</p>
-            </div>
-          </article>
-
-          <article class="sample-card trade-card clean-experience-card">
-            <div class="sample-content">
-              <h5>Tiling, Flooring, Painting & Landscaping</h5>
-              <p>Internal finishes and external works markups including tiling, sealing, flooring, plasterboard, painting and landscaping-related quantities.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="trade-summary-strip">
-          <span>All-Trades</span>
-          <span>Roofing</span>
-          <span>Plasterboard Linings, Stopping & Painting</span>
-          <span>Concrete</span>
-          <span>Demolition</span>
-          <span>Landscaping</span>
-        </div>
-      </div>
-    </div>
-
-
-
-</section>
-
   <section id="contact">
     <div class="contact">
       <div class="section-head" style="justify-content:center;margin-bottom:18px;">
@@ -2636,15 +3101,16 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.16)!import
         function update(currentTime){
           const progress = Math.min((currentTime - startTime) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          const value = Math.floor(eased * target);
           const prefix = counter.dataset.prefix || '';
           const suffix = counter.dataset.suffix || '';
+          const decimals = Number(counter.dataset.decimals || 0);
+          const value = decimals ? (eased * target).toFixed(decimals) : Math.floor(eased * target);
           counter.textContent = prefix + value + suffix;
 
           if(progress < 1){
             requestAnimationFrame(update);
           } else {
-            counter.textContent = prefix + target + suffix;
+            counter.textContent = prefix + (decimals ? target.toFixed(decimals) : target) + suffix;
           }
         }
 
@@ -2671,8 +3137,62 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.16)!import
     }, { threshold: 0.35 });
 
     sectionTitles.forEach(title => titleObserver.observe(title));
+
+    const clientPairs = document.querySelectorAll('.premium-client-pair');
+    const clientDots = document.querySelectorAll('.premium-dot');
+    const clientDurations = [10000, 10000, 4000, 4000, 4000, 4000, 4000];
+    let clientIndex = 0;
+
+    function showClientPair(index){
+      clientPairs.forEach((pair, i) => pair.classList.toggle('active', i === index));
+      clientDots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    }
+
+    if(clientPairs.length){
+      showClientPair(0);
+      function rotateClientPairs(){
+        setTimeout(() => {
+          clientIndex = (clientIndex + 1) % clientPairs.length;
+          showClientPair(clientIndex);
+          rotateClientPairs();
+        }, clientDurations[clientIndex] || 4000);
+      }
+      rotateClientPairs();
+    }
+
   </script>
 
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('[data-static="true"]').forEach(function(el){
+    el.textContent = '20-30+';
+  });
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const rangeCounter = document.querySelector('.range-counter');
+  if (rangeCounter) {
+    rangeCounter.textContent = '0+';
+    setTimeout(function(){
+      rangeCounter.textContent = rangeCounter.getAttribute('data-final') || '20-30+';
+    }, 1700);
+  }
+
+  // Safety cleanup if any previous counter script outputs NaN.
+  document.querySelectorAll('.counter').forEach(function(el){
+    if (el.textContent.trim() === 'NaN') {
+      if (el.classList.contains('range-counter')) {
+        el.textContent = el.getAttribute('data-final') || '20-30+';
+      }
+    }
+  });
+});
+</script>
 
 </body>
 </html>
