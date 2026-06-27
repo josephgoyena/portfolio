@@ -2636,14 +2636,160 @@ section:has(.contact){
 }
 
 
-/* Headshot protection */
-.headshot-protected{
-    user-select:none;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    -webkit-user-drag:none;
-    pointer-events:none;
+/* Premium Client Experience manual navigation + pause controls */
+.client-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:54px;
+  height:54px;
+  border:none;
+  border-radius:50%;
+  background:rgba(24,24,24,.72);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  z-index:50;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .35s ease, transform .35s ease, background .35s ease, box-shadow .35s ease;
+}
+.client-nav span{
+  color:#fff;
+  font-size:22px;
+  font-weight:300;
+  line-height:1;
+}
+.premium-client-carousel:hover .client-nav{
+  opacity:1;
+  pointer-events:auto;
+}
+.client-prev{left:-28px;}
+.client-next{right:-28px;}
+.client-nav:hover{
+  background:rgba(245,245,245,.12);
+  box-shadow:0 10px 35px rgba(0,0,0,.28),0 0 0 1px rgba(255,255,255,.12);
+  transform:translateY(-50%) scale(1.08);
+}
+.client-nav:active{
+  transform:translateY(-50%) scale(.96);
+}
+@media(max-width:900px){
+  .client-nav{
+    opacity:1;
+    pointer-events:auto;
+    width:46px;
+    height:46px;
+  }
+  .client-prev{left:8px;}
+  .client-next{right:8px;}
+}
+
+
+/* Most Recent Role bullet typewriter effect - cards stay static */
+#recent-role .role-card li{
+  position:relative;
+  list-style:none;
+  margin-left:0;
+  padding-left:22px;
+  color:var(--muted);
+}
+#recent-role .role-card ul{
+  list-style:none;
+  padding-left:0;
+}
+#recent-role .role-card li::before{
+  content:"▸";
+  position:absolute;
+  left:0;
+  top:0;
+  color:var(--silver);
+  opacity:.78;
+  font-weight:900;
+}
+#recent-role .role-card li.role-type-ready{
+  min-height:1.65em;
+}
+#recent-role .role-card li.role-typing::after{
+  content:"";
+  display:inline-block;
+  width:7px;
+  height:1.05em;
+  margin-left:4px;
+  transform:translateY(2px);
+  background:linear-gradient(180deg,#ffffff,#bfbfbf);
+  animation:roleCaretBlink .85s steps(2,end) infinite;
+}
+#recent-role .role-card li.role-typed{
+  color:#d0d0d0;
+}
+@keyframes roleCaretBlink{
+  0%,45%{opacity:1;}
+  46%,100%{opacity:0;}
+}
+@media (prefers-reduced-motion: reduce){
+  #recent-role .role-card li.role-typing::after{
+    display:none;
+  }
+}
+
+
+
+/* FINAL: Clean static Most Recent Role cards + ▸ bullet reveal only */
+#recent-role .role-card,
+#recent-role .role-card:hover{
+  transform:none !important;
+  background:linear-gradient(145deg,#252525,#171717) !important;
+  border:1px solid rgba(255,255,255,.09) !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.22) !important;
+  transition:none !important;
+}
+
+#recent-role .role-card::before,
+#recent-role .role-card::after,
+#recent-role .role-card:hover::before,
+#recent-role .role-card:hover::after{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+  animation:none !important;
+  transition:none !important;
+}
+
+#recent-role .role-card h4,
+#recent-role .role-card ul{
+  position:relative;
+}
+
+#recent-role .role-card ul{
+  list-style:none !important;
+  padding-left:0 !important;
+}
+
+#recent-role .role-card li{
+  position:relative !important;
+  list-style:none !important;
+  margin-left:0 !important;
+  margin-bottom:8px !important;
+  padding-left:24px !important;
+  color:var(--muted) !important;
+}
+
+#recent-role .role-card li::before{
+  content:"▸" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  color:var(--silver) !important;
+  opacity:.9 !important;
+  font-weight:900 !important;
+}
+
+#recent-role .role-card li.role-typed{
+  color:#d0d0d0 !important;
 }
 
 </style>
@@ -2683,7 +2829,7 @@ section:has(.contact){
 
     <aside class="headshot-card">
       <div class="headshot-inner">
-        <img src="joseph-headshot.jpg" alt="Joseph Goyena" style="width:100%;height:100%;object-fit:cover;" class="headshot-protected" draggable="false" oncontextmenu="return false;">
+        <img src="joseph-headshot.jpg" alt="Joseph Goyena" style="width:100%;height:100%;object-fit:cover;">
       </div>
     </aside>
   </main>
@@ -3042,6 +3188,14 @@ section:has(.contact){
         </div>
       </div>
 
+      <button class="client-nav client-prev" aria-label="Previous Client">
+        <span>&#10094;</span>
+      </button>
+
+      <button class="client-nav client-next" aria-label="Next Client">
+        <span>&#10095;</span>
+      </button>
+
       <div class="premium-progress">
         <div class="premium-dot"></div>
         <div class="premium-dot"></div>
@@ -3149,26 +3303,144 @@ section:has(.contact){
 
     sectionTitles.forEach(title => titleObserver.observe(title));
 
+
+
+    // Most Recent Role synced bullet typewriter animation
+    // Bullet 1 in every card starts together, then Bullet 2 in every card, and so on.
+    const recentRoleSection = document.querySelector('#recent-role');
+    const roleCards = Array.from(document.querySelectorAll('#recent-role .role-card'));
+    const roleBullets = document.querySelectorAll('#recent-role .role-card li');
+    let roleTypeStarted = false;
+
+    roleBullets.forEach(li => {
+      li.dataset.fullText = li.textContent.trim();
+      li.textContent = '';
+      li.classList.add('role-type-ready');
+    });
+
+    function typeRoleBullet(li, text){
+      return new Promise(resolve => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(prefersReducedMotion){
+          li.textContent = text;
+          li.classList.add('role-typed');
+          resolve();
+          return;
+        }
+
+        let charIndex = 0;
+        li.classList.add('role-typing');
+
+        function typeNextChar(){
+          li.textContent = text.slice(0, charIndex);
+          charIndex++;
+
+          if(charIndex <= text.length){
+            const currentChar = text.charAt(charIndex - 2);
+            const delay = currentChar === ',' || currentChar === '&' ? 22 : 10;
+            setTimeout(typeNextChar, delay);
+          }else{
+            li.classList.remove('role-typing');
+            li.classList.add('role-typed');
+            setTimeout(resolve, 120);
+          }
+        }
+
+        typeNextChar();
+      });
+    }
+
+    async function startRoleTypewriter(){
+      if(roleTypeStarted || !roleCards.length) return;
+      roleTypeStarted = true;
+
+      const maxBulletCount = Math.max(...roleCards.map(card => card.querySelectorAll('li').length));
+
+      for(let bulletIndex = 0; bulletIndex < maxBulletCount; bulletIndex++){
+        const bulletsInSameRow = roleCards
+          .map(card => card.querySelectorAll('li')[bulletIndex])
+          .filter(Boolean);
+
+        await Promise.all(
+          bulletsInSameRow.map(li => typeRoleBullet(li, li.dataset.fullText || ''))
+        );
+
+        await new Promise(resolve => setTimeout(resolve, 160));
+      }
+    }
+
+    if(recentRoleSection){
+      const roleObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            startRoleTypewriter();
+            roleObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.22 });
+
+      roleObserver.observe(recentRoleSection);
+    }
+
     const clientPairs = document.querySelectorAll('.premium-client-pair');
     const clientDots = document.querySelectorAll('.premium-dot');
-    const clientDurations = [10000, 10000, 4000, 4000, 4000, 4000, 4000];
+    const clientCarousel = document.querySelector('.premium-client-carousel');
+    const clientPrev = document.querySelector('.client-prev');
+    const clientNext = document.querySelector('.client-next');
+    const clientDurations = [6000, 4000, 4000, 4000, 4000, 4000, 4000];
     let clientIndex = 0;
+    let clientTimer;
+    let clientPaused = false;
 
     function showClientPair(index){
       clientPairs.forEach((pair, i) => pair.classList.toggle('active', i === index));
       clientDots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     }
 
+    function startClientTimer(){
+      clearTimeout(clientTimer);
+      if(clientPaused || !clientPairs.length) return;
+
+      clientTimer = setTimeout(() => {
+        clientIndex = (clientIndex + 1) % clientPairs.length;
+        showClientPair(clientIndex);
+        startClientTimer();
+      }, clientDurations[clientIndex] || 4000);
+    }
+
+    function goToClientPair(index){
+      clientIndex = (index + clientPairs.length) % clientPairs.length;
+      showClientPair(clientIndex);
+      startClientTimer();
+    }
+
     if(clientPairs.length){
       showClientPair(0);
-      function rotateClientPairs(){
-        setTimeout(() => {
-          clientIndex = (clientIndex + 1) % clientPairs.length;
-          showClientPair(clientIndex);
-          rotateClientPairs();
-        }, clientDurations[clientIndex] || 4000);
+      startClientTimer();
+
+      if(clientPrev){
+        clientPrev.addEventListener('click', () => {
+          goToClientPair(clientIndex - 1);
+        });
       }
-      rotateClientPairs();
+
+      if(clientNext){
+        clientNext.addEventListener('click', () => {
+          goToClientPair(clientIndex + 1);
+        });
+      }
+
+      if(clientCarousel){
+        clientCarousel.addEventListener('mouseenter', () => {
+          clientPaused = true;
+          clearTimeout(clientTimer);
+        });
+
+        clientCarousel.addEventListener('mouseleave', () => {
+          clientPaused = false;
+          startClientTimer();
+        });
+      }
     }
 
   </script>
