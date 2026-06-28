@@ -2947,6 +2947,22 @@ section:not(#snapshot){
   }
 }
 
+
+/* Make Email Inquiry identical to Book a Meeting */
+a.btn-secondary[href^="mailto"], 
+a.btn-secondary.email-inquiry{
+    background: transparent !important;
+    color: var(--text) !important;
+    border:1px solid rgba(255,255,255,.22) !important;
+    box-shadow:none !important;
+    animation:none !important;
+}
+a.btn-secondary[href^="mailto"]:hover,
+a.btn-secondary.email-inquiry:hover{
+    background:rgba(255,255,255,.05) !important;
+    color:#fff !important;
+}
+
 </style>
 </head>
 <body>
@@ -3039,7 +3055,7 @@ section:not(#snapshot){
         <h4>Commercial Tendering &amp; Pre-Construction</h4>
       </div>
       <p class="role-card-summary">
-        Led the commercial preparation of <strong>20–30+ demolition tenders per week</strong>, managing the workflow from tender receipt through submission.
+        <strong>Held full responsibility for the company's demolition tendering function</strong>, independently delivering <strong>20–30+ demolition tenders per week</strong> from tender invitation and scope review through estimating, subcontractor procurement, commercial submissions, and tender negotiations.
       </p>
       <ul>
         <li>Tender registration and commercial review</li>
@@ -3409,7 +3425,7 @@ section:not(#snapshot){
       </div>
 
       <div class="actions" style="justify-content:center;">
-        <a class="btn primary" href="mailto:joseph@jkconstructionsolutions.com">Email Inquiry</a>
+        <a class="btn secondary" href="mailto:joseph@jkconstructionsolutions.com">Email Inquiry</a>
         <a class="btn secondary" href="https://calendar.app.google/p7jV7oy5QcywrdtDA" target="_blank" rel="noopener">Book a Meeting</a>
       </div>
     </div>
