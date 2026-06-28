@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7BLFKVYKJ3"></script>
+  <!-- Google Analytics: loaded after first paint for faster initial display -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    gtag('config', 'G-7BLFKVYKJ3');
+    window.addEventListener('load', function(){
+      var loadGA = function(){
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-7BLFKVYKJ3';
+        document.head.appendChild(script);
+        gtag('config', 'G-7BLFKVYKJ3');
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA, {timeout: 2500});
+      } else {
+        setTimeout(loadGA, 1200);
+      }
+    });
   </script>
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="preload" as="image" href="joseph-headshot.jpg" fetchpriority="high">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Joseph Goyena | Construction Project Coordinator<br><span style="font-size:.72em;font-weight:500;opacity:.85;">Pre-Construction | Commercial | Project Delivery</span></title>
+  <title>Joseph Goyena | Construction Project Coordinator</title>
   <style>
     :root{
       --bg:#121212;
@@ -2151,6 +2165,26 @@ section:has(.contact){
   color:#d0d0d0 !important;
 }
 
+
+/* Performance patch: keeps animations but reduces first-load rendering work */
+img{max-width:100%;height:auto;}
+.headshot-inner img{display:block;height:100%;}
+main.hero{content-visibility:visible;}
+section:not(#snapshot){
+  content-visibility:auto;
+  contain-intrinsic-size:1px 720px;
+}
+.stat,.card,.featured-project-card,.premium-client-card,.experience-card,.sector-tile,.btn,.hero-reveal,.hero-title-unique{
+  backface-visibility:hidden;
+  transform-style:preserve-3d;
+}
+.hero-reveal,.hero-title-unique,.premium-client-pair,.experience-set{
+  will-change:opacity,transform;
+}
+@media(max-width:900px){
+  section:not(#snapshot){contain-intrinsic-size:1px 900px;}
+}
+
 </style>
 </head>
 <body>
@@ -2188,7 +2222,7 @@ section:has(.contact){
 
     <aside class="headshot-card">
       <div class="headshot-inner">
-        <img src="joseph-headshot.jpg" alt="Joseph Goyena" style="width:100%;height:100%;object-fit:cover;">
+        <img src="joseph-headshot.jpg" alt="Joseph Goyena" width="720" height="960" decoding="async" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;">
       </div>
     </aside>
   </main>
@@ -2643,7 +2677,7 @@ section:has(.contact){
       });
     }, { threshold: 0.35 });
 
-    observer.observe(snapshotSection);
+    if(snapshotSection){ observer.observe(snapshotSection); }
 
     const sectionTitles = document.querySelectorAll('.section-animated-title');
     const titleObserver = new IntersectionObserver(entries => {
@@ -2767,7 +2801,21 @@ section:has(.contact){
 
     if(clientPairs.length){
       showClientPair(0);
-      startClientTimer();
+
+      if ('IntersectionObserver' in window && clientCarousel) {
+        const clientViewObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if(entry.isIntersecting){
+              startClientTimer();
+            }else{
+              clearTimeout(clientTimer);
+            }
+          });
+        }, {threshold: 0.15});
+        clientViewObserver.observe(clientCarousel);
+      } else {
+        startClientTimer();
+      }
 
       if(clientPrev){
         clientPrev.addEventListener('click', () => {
@@ -2796,26 +2844,6 @@ section:has(.contact){
 
   </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const rangeCounter = document.querySelector('.range-counter');
-  if (rangeCounter) {
-    rangeCounter.textContent = '0+';
-    setTimeout(function(){
-      rangeCounter.textContent = rangeCounter.getAttribute('data-final') || '20-30+';
-    }, 1700);
-  }
-
-  // Safety cleanup if any previous counter script outputs NaN.
-  document.querySelectorAll('.counter').forEach(function(el){
-    if (el.textContent.trim() === 'NaN') {
-      if (el.classList.contains('range-counter')) {
-        el.textContent = el.getAttribute('data-final') || '20-30+';
-      }
-    }
-  });
-});
-</script>
 
 </body>
 </html>
