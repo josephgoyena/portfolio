@@ -2185,6 +2185,357 @@ section:not(#snapshot){
   section:not(#snapshot){contain-intrinsic-size:1px 900px;}
 }
 
+
+/* End-to-End Commercial & Project Delivery section */
+.end-to-end-section .role-overview{
+  margin-bottom:28px;
+}
+
+.lifecycle-role-grid{
+  align-items:stretch;
+}
+
+.lifecycle-role-card{
+  position:relative;
+  overflow:hidden;
+  min-height:420px !important;
+  background:
+    radial-gradient(circle at 82% 8%, rgba(245,245,245,.08), transparent 32%),
+    linear-gradient(145deg,#252525,#171717) !important;
+  border:1px solid rgba(255,255,255,.10) !important;
+  box-shadow:0 18px 48px rgba(0,0,0,.24) !important;
+  transition:transform .28s ease, border-color .28s ease, box-shadow .28s ease !important;
+}
+
+.lifecycle-role-card:hover{
+  transform:translateY(-6px) !important;
+  border-color:rgba(245,245,245,.32) !important;
+  box-shadow:0 26px 70px rgba(0,0,0,.32), 0 0 0 1px rgba(245,245,245,.06) !important;
+}
+
+.lifecycle-role-card::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--silver),transparent);
+  opacity:.45;
+  transform:scaleX(.58);
+  transform-origin:center;
+  animation:pulseLine 3.8s ease-in-out infinite;
+}
+
+.role-card-top{
+  position:relative;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:16px;
+}
+
+.role-card-index{
+  flex:0 0 auto;
+  color:rgba(245,245,245,.9);
+  font-size:12px;
+  font-weight:950;
+  letter-spacing:.16em;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.045);
+}
+
+.lifecycle-role-card h4{
+  font-size:22px !important;
+  line-height:1.12;
+  letter-spacing:-.035em;
+  margin:0 !important;
+  max-width:260px;
+}
+
+.role-card-summary{
+  position:relative;
+  color:#d0d0d0 !important;
+  font-size:14.5px;
+  line-height:1.65 !important;
+  margin:0 0 18px !important;
+}
+
+.role-card-summary strong{
+  color:var(--silver);
+}
+
+.lifecycle-role-card ul{
+  position:relative;
+  list-style:none !important;
+  padding-left:0 !important;
+  margin:0 !important;
+}
+
+.lifecycle-role-card li{
+  position:relative !important;
+  list-style:none !important;
+  padding-left:23px !important;
+  margin-bottom:9px !important;
+  color:var(--muted) !important;
+  line-height:1.55 !important;
+  font-size:14.5px;
+}
+
+.lifecycle-role-card li::before{
+  content:"▸" !important;
+  position:absolute !important;
+  left:0 !important;
+  top:0 !important;
+  color:var(--silver) !important;
+  opacity:.86 !important;
+  font-weight:900 !important;
+}
+
+.lifecycle-flow{
+  margin-top:34px;
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:34px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(245,245,245,.07), transparent 42%),
+    linear-gradient(145deg,rgba(255,255,255,.052),rgba(255,255,255,.018));
+  box-shadow:0 26px 70px rgba(0,0,0,.24);
+  overflow:hidden;
+  position:relative;
+}
+
+.lifecycle-flow::before{
+  display:none;
+}
+
+.lifecycle-flow > *{
+  position:relative;
+}
+
+.lifecycle-flow-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  margin-bottom:24px;
+}
+
+.lifecycle-flow-head span{
+  color:var(--silver);
+  font-size:25px;
+  font-weight:950;
+  letter-spacing:-.035em;
+}
+
+.lifecycle-flow-head p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.5;
+}
+
+.lifecycle-steps{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:12px;
+  counter-reset:lifecycle;
+}
+
+.lifecycle-steps span{
+  position:relative;
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:18px 12px;
+  border-radius:18px;
+  color:#d9d9d9;
+  font-size:12.5px;
+  font-weight:850;
+  line-height:1.25;
+  background:linear-gradient(145deg,#252525,#171717);
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.lifecycle-steps span::before{
+  counter-increment:lifecycle;
+  content:counter(lifecycle, decimal-leading-zero);
+  position:absolute;
+  top:8px;
+  left:10px;
+  color:rgba(245,245,245,.38);
+  font-size:10px;
+  letter-spacing:.08em;
+  font-weight:900;
+}
+
+.lifecycle-steps span:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-10px;
+  top:50%;
+  width:8px;
+  height:1px;
+  background:rgba(245,245,245,.38);
+}
+
+.lifecycle-closing{
+  margin:24px 0 0;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:16px;
+  text-align:center;
+}
+
+@media(max-width:1100px){
+  .lifecycle-steps{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .lifecycle-steps span:not(:last-child)::after{
+    display:none;
+  }
+}
+
+@media(max-width:900px){
+  .lifecycle-role-card{
+    min-height:auto !important;
+  }
+
+  .lifecycle-flow{
+    padding:26px 20px;
+    border-radius:26px;
+  }
+
+  .lifecycle-flow-head{
+    display:block;
+  }
+
+  .lifecycle-flow-head p{
+    margin-top:8px;
+  }
+
+  .lifecycle-steps{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .lifecycle-steps span{
+    min-height:auto;
+    justify-content:flex-start;
+    text-align:left;
+    padding:16px 16px 16px 54px;
+  }
+
+  .lifecycle-steps span::before{
+    top:50%;
+    left:16px;
+    transform:translateY(-50%);
+  }
+
+  .lifecycle-closing{
+    text-align:left;
+    font-size:15.5px;
+  }
+}
+
+
+.recent-header{
+  display:block!important;
+  margin-bottom:30px!important;
+}
+.recent-main-title{
+  margin:0 0 10px;
+  font-size:clamp(36px,4.5vw,48px);
+  line-height:1.05;
+  letter-spacing:-.045em;
+  font-weight:950;
+  color:var(--text);
+}
+.recent-subtitle{
+  margin:0!important;
+  font-size:clamp(24px,2.8vw,30px)!important;
+  line-height:1.15;
+  font-weight:800!important;
+}
+@media(max-width:900px){
+  .recent-main-title{
+  margin:0 0 10px;
+  font-size:clamp(36px,4.5vw,48px);
+  line-height:1.05;
+  letter-spacing:-.045em;
+  font-weight:950;
+  color:var(--text);
+}
+  .recent-subtitle{
+  margin:0!important;
+  font-size:clamp(24px,2.8vw,30px)!important;
+  line-height:1.15;
+  font-weight:800!important;
+}
+}
+
+
+
+/* Recent experience heading alignment */
+#recent-role .recent-header{
+  display:block !important;
+  margin-bottom:30px !important;
+}
+
+#recent-role .recent-subtitle{
+  display:block !important;
+  margin:24px 0 0 !important;
+  max-width:600px !important;
+  color:#d8d8d8 !important;
+  font-size:clamp(18px,2vw,23px) !important;
+  line-height:1.25 !important;
+  letter-spacing:-.02em !important;
+  font-weight:700 !important;
+}
+
+#recent-role .lifecycle-flow::before{
+  display:none !important;
+  content:none !important;
+  animation:none !important;
+}
+
+#recent-role .lifecycle-flow-head p{
+  display:none !important;
+}
+
+@media(max-width:900px){
+  #recent-role .recent-subtitle{
+    font-size:clamp(18px,5vw,22px) !important;
+    max-width:100% !important;
+  }
+}
+
+
+/* Move experience subtitle into overview card */
+#recent-role .overview-subtitle{
+  margin:0 0 14px;
+  font-size:clamp(22px,2.2vw,28px);
+  font-weight:850;
+  line-height:1.2;
+  letter-spacing:-.03em;
+  color:var(--silver);
+}
+
+
+/* Compact lifecycle box after removing closing paragraph */
+#recent-role .lifecycle-flow{
+  padding-bottom:26px !important;
+}
+#recent-role .lifecycle-steps{
+  margin-bottom:0 !important;
+}
+
 </style>
 </head>
 <body>
@@ -2248,78 +2599,107 @@ section:not(#snapshot){
     </div>
   </section>
 
-  <section id="recent-role">
-    <div class="section-head">
-      <h3 class="section-flash-title">Most Recent Role</h3>
+  
+<section id="recent-role" class="end-to-end-section">
+  <div class="section-head recent-header">
+    <div>
+      <h3 class="section-flash-title">Most Recent Experience</h3>
+      
     </div>
+  </div>
 
-    <div class="highlight role-overview">
-      <p>Contributed to projects from tender submission through financial closeout, combining estimating, pre-construction planning, procurement coordination, site readiness, project delivery support, commercial administration and stakeholder communication responsibilities.</p>
-    </div>
+  <div class="role-overview highlight">
+    <h4 class="overview-subtitle">End-to-End Commercial &amp; Project Delivery</h4>
+    <p>
+      My most recent role extended beyond estimating. I was involved across the full commercial and
+      operational lifecycle of demolition projects — from tender invitation and scope review through
+      pricing, mobilisation, delivery support, variations, claims and financial closeout.
+    </p>
+  </div>
 
-    <div class="grid role-grid">
-      <div class="card role-card">
-        <h4>Tendering &amp; Commercial Strategy</h4>
-        <ul>
-          <li>Prepared 20–30+ estimates weekly as sole estimator</li>
-          <li>Completed quantity takeoffs, pricing reviews and tender submissions</li>
-          <li>Assessed scope, risk, documentation gaps and bid viability</li>
-          <li>Provided bid / no-bid recommendations where required</li>
-        </ul>
+  <div class="grid role-grid lifecycle-role-grid">
+    <article class="card role-card lifecycle-role-card">
+      <div class="role-card-top">
+        <span class="role-card-index">01</span>
+        <h4>Commercial Tendering &amp; Pre-Construction</h4>
       </div>
-      <div class="card role-card">
-        <h4>Project Award &amp; Pre-Construction Planning</h4>
-        <ul>
-          <li>Reviewed post-tender and IFC documentation</li>
-          <li>Checked updated drawings, construction programs, staging plans and methodologies</li>
-          <li>Supported contract review, clarifications and scope establishment</li>
-          <li>Prepared awarded projects for mobilisation and closeout alignment</li>
-        </ul>
+      <p class="role-card-summary">
+        Led the commercial preparation of <strong>20–30+ demolition tenders per week</strong>, managing the workflow from tender receipt through submission.
+      </p>
+      <ul>
+        <li>Tender registration and commercial review</li>
+        <li>Reviewing drawings, specifications, BOQs and demolition markups</li>
+        <li>Assessing addenda for scope, commercial and pricing impacts</li>
+        <li>Quantity take-offs and scope validation</li>
+        <li>Preparing demolition estimates with clear exclusions and assumptions</li>
+        <li>Obtaining supplier and subcontractor pricing</li>
+        <li>Tender submissions, clarifications and negotiations</li>
+      </ul>
+    </article>
+
+    <article class="card role-card lifecycle-role-card">
+      <div class="role-card-top">
+        <span class="role-card-index">02</span>
+        <h4>Commercial Management &amp; Cost Control</h4>
       </div>
-      <div class="card role-card">
-        <h4>Resource Planning &amp; Mobilisation</h4>
-        <ul>
-          <li>Organised subcontractors, plant and equipment required on site</li>
-          <li>Supported resource planning and allocation requirements</li>
-          <li>Recommended suitable crews based on project scope, complexity and program</li>
-          <li>Coordinated site readiness before works commenced</li>
-        </ul>
+      <p class="role-card-summary">
+        Supported the commercial performance of projects from contract review through project reconciliation and financial closeout.
+      </p>
+      <ul>
+        <li>Contract review before project commencement</li>
+        <li>Margin management and cash flow monitoring</li>
+        <li>Variation pricing and commercial administration</li>
+        <li>Progress claim preparation</li>
+        <li>Project cost tracking and budget monitoring</li>
+        <li>Commercial support during delivery</li>
+        <li>Assistance with dispute resolution</li>
+        <li>Financial closeout and project reconciliation</li>
+      </ul>
+    </article>
+
+    <article class="card role-card lifecycle-role-card">
+      <div class="role-card-top">
+        <span class="role-card-index">03</span>
+        <h4>Project Coordination &amp; Delivery</h4>
       </div>
-      <div class="card role-card">
-        <h4>Compliance &amp; Site Documentation</h4>
-        <ul>
-          <li>Prepared SWMS, ARCPs and crew work orders</li>
-          <li>Uploaded project documentation into SiteDocs</li>
-          <li>Prepared site-specific methodologies</li>
-          <li>Prepared Waste Management / Sustainability Plans</li>
-          <li>Prepared BBP / Waste Reports where required</li>
-          <li>Maintained mobilisation documentation for site teams</li>
-          <li>Supported compliance requirements prior to and during delivery</li>
-        </ul>
-      </div>
-      <div class="card role-card">
-        <h4>Stakeholder &amp; Site Coordination</h4>
-        <ul>
-          <li>Communicated with client project managers and site managers</li>
-          <li>Coordinated with internal site managers and crews</li>
-          <li>Assisted crew inquiries during live works</li>
-          <li>Helped maintain communication between office, site and client teams</li>
-        </ul>
-      </div>
-      <div class="card role-card">
-        <h4>Project Delivery, Claims &amp; Financial Closeout</h4>
-        <ul>
-          <li>Supported and managed live projects depending on project assignment</li>
-          <li>Tracked labour timesheets and labour costs</li>
-          <li>Recorded waste costs, tools, plant hire, subcontractor costs and overheads</li>
-          <li>Created variations and change orders</li>
-          <li>Prepared budget tracking and P&amp;L reporting support</li>
-          <li>Prepared progress claims and full claims using Xero, PayApps and Premier</li>
-          <li>Supported final account, revenue closeout and dispute discussions with clients</li>
-        </ul>
-      </div>
+      <p class="role-card-summary">
+        Coordinated operational planning and delivery support across multiple live demolition projects simultaneously.
+      </p>
+      <ul>
+        <li>Crew planning and labour allocation</li>
+        <li>Subcontractor coordination</li>
+        <li>Plant, equipment and resource planning</li>
+        <li>SWMS, work orders and project documentation</li>
+        <li>Project mobilisation planning</li>
+        <li>Coordination of approximately <strong>3–4 concurrent projects</strong></li>
+        <li>Scope management throughout delivery</li>
+        <li>Support through project completion and closeout</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="lifecycle-flow">
+    <div class="lifecycle-flow-head"><span>Project Lifecycle Coverage</span></div>
+
+    <div class="lifecycle-steps" aria-label="End-to-end project lifecycle workflow">
+      <span>Tender Invitation</span>
+      <span>Tender Registration</span>
+      <span>Drawing &amp; BOQ Review</span>
+      <span>Scope Assessment</span>
+      <span>Quantity Take-off</span>
+      <span>Commercial Pricing</span>
+      <span>Tender Submission</span>
+      <span>Commercial Negotiation</span>
+      <span>Project Award</span>
+      <span>Project Mobilisation</span>
+      <span>Project Coordination</span>
+      <span>Commercial Management</span>
+      <span>Variations &amp; Claims</span>
+      <span>Financial Closeout</span>
     </div>
-  </section>
+</div>
+</section>
+
 
   <section id="projects">
     <div class="section-head">
