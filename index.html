@@ -2536,12 +2536,171 @@ section:not(#snapshot){
   margin-bottom:0 !important;
 }
 
+
+/* === FINAL MOBILE OPTIMIZATION PATCH === */
+
+/* Remove 01/02/03 badges from most recent experience cards */
+#recent-role .role-card-index{display:none!important;}
+#recent-role .role-card-top{display:block!important;margin-bottom:14px!important;}
+#recent-role .lifecycle-role-card h4{max-width:100%!important;}
+
+/* Mobile hamburger navigation */
+.mobile-menu-toggle{
+  display:none;
+  width:42px;
+  height:42px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  background:rgba(255,255,255,.035);
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.mobile-menu-toggle span{
+  display:block;
+  width:20px;
+  height:2px;
+  border-radius:999px;
+  background:var(--silver);
+}
+@media(max-width:700px){
+  header .nav{
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:12px!important;
+    padding:18px 22px!important;
+    position:relative!important;
+  }
+  .mobile-menu-toggle{display:flex!important;}
+  header .links{
+    position:absolute!important;
+    left:22px!important;
+    right:22px!important;
+    top:calc(100% + 10px)!important;
+    z-index:50!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:0!important;
+    max-height:0!important;
+    overflow:hidden!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:18px!important;
+    background:rgba(18,18,18,.96)!important;
+    backdrop-filter:blur(16px)!important;
+    -webkit-backdrop-filter:blur(16px)!important;
+    box-shadow:0 24px 70px rgba(0,0,0,.42)!important;
+    transition:max-height .28s ease,padding .28s ease,border-color .28s ease!important;
+  }
+  header .nav.mobile-menu-open .links{
+    max-height:360px!important;
+    padding:10px!important;
+    border:1px solid rgba(255,255,255,.10)!important;
+  }
+  header .links a{
+    padding:13px 14px!important;
+    font-size:14px!important;
+    white-space:normal!important;
+    border-radius:12px!important;
+  }
+}
+
+/* Center client carousel arrows on mobile */
+@media(max-width:900px){
+  .premium-client-carousel .client-nav{
+    top:50%!important;
+    transform:translateY(-50%)!important;
+    width:40px!important;
+    height:40px!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+    background:rgba(24,24,24,.72)!important;
+  }
+  .premium-client-carousel .client-prev{left:8px!important;}
+  .premium-client-carousel .client-next{right:8px!important;}
+  .premium-client-carousel .client-nav:hover,
+  .premium-client-carousel .client-nav:active{transform:translateY(-50%) scale(1.03)!important;}
+  .premium-client-carousel .client-nav span{font-size:20px!important;}
+  .premium-client-card{min-height:150px!important;padding:24px 20px!important;}
+  .premium-client-carousel,.seamless-client-carousel{min-height:420px!important;}
+}
+
+/* Mobile project lifecycle: connected vertical flow with arrows */
+@media(max-width:900px){
+  #recent-role .lifecycle-flow{padding:28px 20px!important;}
+  #recent-role .lifecycle-flow-head{margin-bottom:26px!important;}
+  #recent-role .lifecycle-flow-head span{
+    font-size:clamp(26px,7vw,34px)!important;
+    line-height:1.1!important;
+  }
+  #recent-role .lifecycle-steps{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+    padding-left:34px!important;
+  }
+  #recent-role .lifecycle-steps::before{
+    content:""!important;
+    position:absolute!important;
+    top:36px!important;
+    bottom:36px!important;
+    left:17px!important;
+    width:2px!important;
+    background:linear-gradient(180deg,rgba(216,204,176,.20),rgba(216,204,176,.82),rgba(216,204,176,.20))!important;
+    box-shadow:0 0 18px rgba(216,204,176,.18)!important;
+  }
+  #recent-role .lifecycle-steps span{
+    position:relative!important;
+    min-height:auto!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+    padding:18px 18px 18px 54px!important;
+    border-radius:18px!important;
+  }
+  #recent-role .lifecycle-steps span::before{
+    top:50%!important;
+    left:16px!important;
+    transform:translateY(-50%)!important;
+    color:rgba(245,245,245,.46)!important;
+    font-size:12px!important;
+    letter-spacing:.08em!important;
+  }
+  #recent-role .lifecycle-steps span::after{
+    display:block!important;
+    content:"↓"!important;
+    position:absolute!important;
+    left:-27px!important;
+    right:auto!important;
+    top:calc(100% + 2px)!important;
+    width:auto!important;
+    height:auto!important;
+    background:none!important;
+    color:#d8ccb0!important;
+    font-size:20px!important;
+    font-weight:900!important;
+    line-height:1!important;
+    opacity:.85!important;
+    text-shadow:0 0 12px rgba(216,204,176,.32)!important;
+  }
+  #recent-role .lifecycle-steps span:last-child::after{display:none!important;}
+  #recent-role .lifecycle-role-card{min-height:auto!important;padding:24px!important;}
+  #recent-role .role-card-summary{font-size:14px!important;}
+  #recent-role .lifecycle-role-card li{font-size:14px!important;margin-bottom:7px!important;}
+}
+
 </style>
 </head>
 <body>
   <header>
     <nav class="nav">
       <div class="brand">JOSEPH GOYENA</div>
+      <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
       <div class="links">
         <a href="#home">Home</a>
 
@@ -2620,7 +2779,6 @@ section:not(#snapshot){
   <div class="grid role-grid lifecycle-role-grid">
     <article class="card role-card lifecycle-role-card">
       <div class="role-card-top">
-        <span class="role-card-index">01</span>
         <h4>Commercial Tendering &amp; Pre-Construction</h4>
       </div>
       <p class="role-card-summary">
@@ -2639,7 +2797,6 @@ section:not(#snapshot){
 
     <article class="card role-card lifecycle-role-card">
       <div class="role-card-top">
-        <span class="role-card-index">02</span>
         <h4>Commercial Management &amp; Cost Control</h4>
       </div>
       <p class="role-card-summary">
@@ -2659,7 +2816,6 @@ section:not(#snapshot){
 
     <article class="card role-card lifecycle-role-card">
       <div class="role-card-top">
-        <span class="role-card-index">03</span>
         <h4>Project Coordination &amp; Delivery</h4>
       </div>
       <p class="role-card-summary">
@@ -3224,6 +3380,23 @@ section:not(#snapshot){
 
   </script>
 
+
+
+<script>
+(function(){
+  function ready(fn){document.readyState!=='loading'?fn():document.addEventListener('DOMContentLoaded',fn,{once:true});}
+  ready(function(){
+    var toggle=document.querySelector('.mobile-menu-toggle');
+    var nav=document.querySelector('header .nav');
+    if(toggle&&nav){
+      toggle.addEventListener('click',function(){nav.classList.toggle('mobile-menu-open');});
+      document.querySelectorAll('header .links a').forEach(function(a){
+        a.addEventListener('click',function(){nav.classList.remove('mobile-menu-open');});
+      });
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
